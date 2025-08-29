@@ -1,4 +1,4 @@
-###1.4 Обработка параметров командной строки. Getopt
+# 1.4 Обработка параметров командной строки. Getopt
 
 Большинство программ для Linux имеет множество параметров командной строки, которые
 можно указывать при запуске и тем самым менять их поведение. Количество параметров
@@ -21,7 +21,7 @@
 второй - массив указателей на строки (традиционно называемый `argv`). Причем,
 самый первый параметр это имя самой программы.
 
-```C
+```c
 int main(int argc, char *argv[])
 ```
 
@@ -30,14 +30,14 @@ int main(int argc, char *argv[])
 стандартные функции их обработки. Прочитать описание эти функций можно
 [прямо здесь](getopt.txt) или введя команду
 
-```
+```bash
 man 3 getopt
 ```
 
 Если у вас эта команда не работает, то необходимо предварительно установить
 соответствующий раздел руководства.
 
-```
+```bash
 sudo apt-get install manpages-dev
 ```
 
@@ -51,7 +51,7 @@ sudo apt-get install manpages-dev
 
 Основой для работы с длинными опциями служит структура `option`
 
-```C
+```c
 struct option {
     const char *name;
     int         has_arg;
@@ -77,12 +77,6 @@ struct option {
 
 И пара статей для более детального изучения вопроса:
 
-####[Разбор опций командной строки в UNIX-подобных системах](https://habrahabr.ru/post/55665/)
-
-Примеры кода из первой статьи: [`getopt.c`](habrahabr/getopt.c) и
-[`getopt_long.c`](habrahabr/getopt_long.c)
-
-####[Обработка команд при помощи getopt()](https://www.ibm.com/developerworks/ru/library/au-unix-getopt/)
-
-Примеры кода из второй статьи: [`getopt_demo.c`](ibm/getopt_demo.c) и
-[`getopt_long_demo.c`](ibm/getopt_long_demo.c)
+- [Разбор опций командной строки в UNIX-подобных системах](https://habrahabr.ru/post/55665/). Примеры кода из первой статьи: [`getopt.c`](habrahabr/getopt.c) и
+[`getopt_long.c`](habrahabr/getopt_long.c).
+- [Обработка команд при помощи getopt()](https://www.ibm.com/developerworks/ru/library/au-unix-getopt/). Примеры кода из второй статьи: [`getopt_demo.c`](ibm/getopt_demo.c) и [`getopt_long_demo.c`](ibm/getopt_long_demo.c).

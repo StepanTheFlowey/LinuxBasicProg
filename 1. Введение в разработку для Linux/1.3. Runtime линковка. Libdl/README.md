@@ -1,4 +1,4 @@
-###1.3. Runtime линковка. Libdl
+# 1.3. Runtime линковка. Libdl
 
 Во всех рассмотренных ранее случаях и при компоновке программы, как со статической,
 так и с динамической библиотекой, эти библиотеки уже должны быть на компьютере.
@@ -19,7 +19,7 @@
 Рассмотрим простейший пример применения интерфейса `libdl` для загрузки нашей
 библиотеки `libHello.so`. Файл [`main.c`](main.c)
 
-```C
+```c
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -83,17 +83,17 @@ int main()
 более напрямую не зависит от библиотеки `libHello.so`, но зато ей требуется
 библиотека `libdl`
 
-```
+```make
 all: exe lib
 
 exe: main.c
-	gcc main.c -fPIC -ldl -o hello
+    gcc main.c -fPIC -ldl -o hello
 
 lib: hello.c hello.h
-	gcc -shared hello.c -fPIC -o libHello.so
+    gcc -shared hello.c -fPIC -o libHello.so
 
 clean:
-	-rm hello libHello.so 2>/dev/null
+    -rm hello libHello.so 2>/dev/null
 ```
 
 Если после сборки приложения запустить команду `ldd hello`, то можно убедиться,
